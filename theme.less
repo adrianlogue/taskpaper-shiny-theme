@@ -1,0 +1,61 @@
+// See http://guide.taskpaper.com/creating_themes.html to get started.
+@user-font-size: 18;
+
+// UI Colors
+@tint-color: #51b9db;
+
+// Base text
+@text-color: #444;
+@background-color: #fff;
+@font-family: Avenir Next;
+@line-height-multiple: 1.3;
+
+editor {
+	guide-line-color: #fff;
+	item-indent: 40px * @ui-scale;
+}
+
+item {
+	handle-border-color: mix(@tint-color, @background-color, 20%);
+}
+
+item[data-type="note"] {
+	font-style: normal;
+	color: mix(@text-color, @background-color, 35%);
+	font-size: 16px;
+}
+
+item[data-type="project"] {
+	font-weight: bold;
+	color: @tint-color;
+	font-size: 22px;
+	line-height-multiple: 2.5;
+}
+
+item[data-done] {
+	color: mix(@text-color, @background-color, 35%);
+	> run[content] {
+		text-strikethrough: NSUnderlineStyleThick NSUnderlinePatternDot;
+      	text-strikethrough-color: mix(@text-color, @background-color, 65%);
+    }
+	> run[link^="button"] {
+		color: mix(@text-color, @background-color, 35%);
+	}
+}
+
+item[leaf] {
+	handle-border-color: none;
+}
+
+item[collapsed] {
+  handle-color: mix(@tint-color, @background-color, 20%);
+  handle-border-color: none;
+}
+
+run[link^="button"] {
+	color: @tint-color;
+}
+
+run[tag] {
+  font-size: 12px;
+}
